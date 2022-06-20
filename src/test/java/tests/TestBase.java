@@ -17,7 +17,9 @@ public class TestBase {
             bodyForDelete = "{\"email\": \"eve.holt@reqres.in\", " +
             "\"password\": \"pistol\"}",
             bodyForNotLogin = "{\"email\": \"peter@klaven\"}",
+            token = "QpwL5tke4Pnpja7X4",
             userPutJob = "zion resident",
+            errorMessage = "Missing password",
             bodyUpdate = "{\"nam" +
                     "e\": \"morpheus\", " + "\"job\": \"zion resident\"}";
 

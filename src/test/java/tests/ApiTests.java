@@ -8,7 +8,6 @@ public class ApiTests extends TestBase {
 
     @Test
     void createUserTest() {
-
         given()
                 .log().uri()
                 .log().body()
@@ -26,9 +25,7 @@ public class ApiTests extends TestBase {
 
     @Test
     void updateUserTest() {
-
         given()
-                .log().uri()
                 .log().body()
                 .body(bodyUpdate)
                 .contentType(JSON)
@@ -43,7 +40,6 @@ public class ApiTests extends TestBase {
 
     @Test
     void listUsersTest() {
-
         given()
                 .when()
                 .get(baseUrl + usersListUrl)
@@ -55,10 +51,8 @@ public class ApiTests extends TestBase {
 
     }
 
-
     @Test
     void registerUserTest() {
-
         given()
                 .when()
                 .delete(baseUrl + deleteUserUrl)
@@ -70,10 +64,8 @@ public class ApiTests extends TestBase {
 
     @Test
     void deleteUsersTest() {
-
         given()
                 .log().body()
-                .log().uri()
                 .body(bodyForDelete)
                 .contentType(JSON)
                 .when()
@@ -82,14 +74,12 @@ public class ApiTests extends TestBase {
                 .log().status()
                 .log().body()
                 .statusCode(200)
-                .body("token", is("QpwL5tke4Pnpja7X4"))
+                .body("token", is(token))
                 .body("id", is(4));
-
-
     }
+
     @Test
     void unsuccessfulLoginTest() {
-
         given()
                 .log().body()
                 .log().uri()
@@ -100,6 +90,6 @@ public class ApiTests extends TestBase {
                 .log().status()
                 .log().body()
                 .statusCode(400)
-                .body("error", is("Missing password"));
+                .body("error", is(errorMessage));
     }
 }
