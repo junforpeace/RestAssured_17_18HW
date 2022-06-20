@@ -40,8 +40,3 @@ target/
 .vscode
 /gradlew
 /gradlew.bat
-gradle/wrapper
-gradlew
-gradlew.bat
-settings.gradle
-.idea
