@@ -8,7 +8,8 @@ import java.net.URL;
 @Config.Sources({
         "system:properties",
         "classpath:configs/demowebshop/demoshop.properties",
-        "classpath:configs/local.properties"
+        "classpath:configs/local.properties",
+        "classpath:configs/remote.properties"
 })
 public interface DemoShopConfig extends Config {
     @Key("webUrl")
@@ -25,4 +26,5 @@ public interface DemoShopConfig extends Config {
 
     @Key("authCookieName")
     String authCookieName();
+
 }
