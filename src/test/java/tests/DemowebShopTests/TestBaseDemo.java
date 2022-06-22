@@ -2,6 +2,7 @@ package tests.DemowebShopTests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverProvider;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.demowebshop.DemoShopConfig;
 import config.demowebshop.RemoteOwner;
@@ -28,17 +29,16 @@ public class TestBaseDemo {
         Configuration.baseUrl = config.webUrl();
         RestAssured.baseURI = config.apiUrl();
         RemoteOwner remoteOwner = ConfigFactory.create(RemoteOwner.class);
+        Configuration.remote = remoteOwner.remoteUrl();
         open(config.webUrl());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        String propertyBrowserSize = System.getProperty("browserSize", "1980x1024"),
-                propertyRemoteUrl = System.getProperty("remoteUrl", remoteOwner.remoteUrl());
-        Configuration.browserSize = propertyBrowserSize;
-        Configuration.remote = propertyRemoteUrl;
 
-    }
+        }
+
+
 
     @AfterEach
     void afterEach() {
