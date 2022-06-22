@@ -9,6 +9,5 @@ import org.aeonbits.owner.Config;
 public interface RemoteOwner extends Config {
     @Key("remoteUrl")
     String remoteUrl();
-    @Key("remoteDriverUrl")
-    String remoteDriverUrl();
+
 }
