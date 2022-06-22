@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d864ce-1196-45a5-ba35-284a941afc79" name="Changes" comment="gitignore commit">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ApiTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestBase.java" afterDir="false" />
+    <list default="true" id="f6d864ce-1196-45a5-ba35-284a941afc79" name="Changes" comment="demoshop commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/DemowebShopTests/TestBaseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DemowebShopTests/TestBaseDemo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655732506444</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="demoshop commit">
+      <created>1655908306837</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655908306837</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,6 +246,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="gitignore commit" />
     <MESSAGE value="demowebshop commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="demowebshop commit" />
+    <MESSAGE value="demoshop commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="demoshop commit" />
   </component>
 </project>

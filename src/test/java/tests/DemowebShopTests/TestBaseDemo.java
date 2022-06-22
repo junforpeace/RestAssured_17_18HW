@@ -33,7 +33,10 @@ public class TestBaseDemo {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-
+        String propertyBrowserSize = System.getProperty("browserSize", "1980x1024"),
+                propertyRemoteUrl = System.getProperty("remoteUrl", remoteOwner.remoteUrl());
+        Configuration.browserSize = propertyBrowserSize;
+        Configuration.remote = propertyRemoteUrl;
 
     }
 
