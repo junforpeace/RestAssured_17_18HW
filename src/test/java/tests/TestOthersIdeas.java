@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,7 @@ import static org.hamcrest.Matchers.hasKey;
 
 public class TestOthersIdeas {
 
-
+@Disabled
     @Test
     @DisplayName("Проверка структуры массива data для элемента списка ресурсов")
     public  void resourceListTest()

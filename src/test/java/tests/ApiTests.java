@@ -1,4 +1,5 @@
 package tests;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static io.restassured.http.ContentType.JSON;
@@ -6,6 +7,7 @@ import static org.hamcrest.core.Is.is;
 
 public class ApiTests extends TestBase {
 
+    @Disabled
     @Test
     void createUserTest() {
         given()
@@ -22,7 +24,7 @@ public class ApiTests extends TestBase {
                 .body("name", is(name))
                 .body("job", is(job));
     }
-
+@Disabled
     @Test
     void updateUserTest() {
         given()
@@ -37,7 +39,7 @@ public class ApiTests extends TestBase {
                 .statusCode(200)
                 .body("job", is(userPutJob));
     }
-
+@Disabled
     @Test
     void listUsersTest() {
         given()
@@ -50,7 +52,7 @@ public class ApiTests extends TestBase {
                 .body("total", is(12));
 
     }
-
+@Disabled
     @Test
     void registerUserTest() {
         given()
@@ -61,7 +63,7 @@ public class ApiTests extends TestBase {
                 .log().body()
                 .statusCode(204);
     }
-
+@Disabled
     @Test
     void deleteUsersTest() {
         given()
@@ -77,7 +79,7 @@ public class ApiTests extends TestBase {
                 .body("token", is(token))
                 .body("id", is(4));
     }
-
+@Disabled
     @Test
     void unsuccessfulLoginTest() {
         given()
