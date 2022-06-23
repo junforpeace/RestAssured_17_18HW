@@ -1,45 +1,46 @@
 package tests.DemowebShopTests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverProvider;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.demowebshop.DemoShopConfig;
-import config.demowebshop.RemoteOwner;
+import config.demowebshop.CredentialsConfig;
 import helpers.AllureAttachments;
-import io.qameta.allure.junit5.AllureJunit5;
+import io.github.bonigarcia.wdm.config.Config;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+import static io.qameta.allure.Allure.step;
 
 
-@ExtendWith({AllureJunit5.class})
 public class TestBaseDemo {
-    static DemoShopConfig config = ConfigFactory.create(DemoShopConfig.class);
-    @BeforeAll
+
+    final static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class, System.getProperties());
+
+     @BeforeAll
     static void configureBaseUrl() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.baseUrl = config.webUrl();
         RestAssured.baseURI = config.apiUrl();
-        RemoteOwner remoteOwner = ConfigFactory.create(RemoteOwner.class);
-        Configuration.remote = remoteOwner.remoteUrl();
-        open(config.webUrl());
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
 
+        String remoteWebDriver = config.remoteWebDriver();
+
+        if (remoteWebDriver != null) {
+            step("Remote web driver setup", () -> {
+                Configuration.remote = String.format("https://%s:%s@%s/wd/hub",
+                        config.selenoid_login(),
+                        config.selenoid_password(),
+                        remoteWebDriver);
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability("enableVNC", true);
+                capabilities.setCapability("enableVideo", true);
+                Configuration.browserCapabilities = capabilities;
+
+            });
         }
-
-
-
+    }
     @AfterEach
     void afterEach() {
         AllureAttachments.screenshotAs("Last screenshot");
