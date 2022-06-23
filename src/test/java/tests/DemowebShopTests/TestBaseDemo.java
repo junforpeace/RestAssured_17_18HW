@@ -29,10 +29,8 @@ public class TestBaseDemo {
 
         if (remoteWebDriver != null) {
             step("Remote web driver setup", () -> {
-                Configuration.remote = String.format("https://%s:%s@%s/wd/hub",
-                        config.selenoid_login(),
-                        config.selenoid_password(),
-                        remoteWebDriver);
+                Configuration.remote = "https://" + config.selenoid_login() + ":" + config.selenoid_password() + "@selenoid.autotests.cloud/wd/hub";
+                
                 DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setCapability("enableVNC", true);
                 capabilities.setCapability("enableVideo", true);
